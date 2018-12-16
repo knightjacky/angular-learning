@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-add-item',
@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AddItemComponent implements OnInit {
   @Input() workList : string[];
+  @Output () clickChildEvent = new EventEmitter();
   dataContainer : string;
   constructor() { }
 
@@ -19,7 +20,7 @@ export class AddItemComponent implements OnInit {
 
   addItem(item: string){
     this.workList.push(item);
-    return this.workList;
+    this.clickChildEvent.emit(this.workList);
   }
 
 }
