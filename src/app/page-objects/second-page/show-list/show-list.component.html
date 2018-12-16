@@ -1,0 +1,9 @@
+<div style="text-align:center">
+<table style="width:60%">
+  <tr *ngFor = "let item of textLabel">
+    <td><h4>{{item}}</h4></td>
+    <td><button (click) = "strikeData(item)">Cross Out</button></td>
+    <td><button (click) = "removeData(item)">Remove</button></td>
+  </tr>
+</table>
+</div>
