@@ -4,7 +4,7 @@
     </h1>
 </div>
 
-<app-show-list [textLabel] = "toDoList"></app-show-list>
+<app-show-list (clickChildEvent)="retrieveData($event)" [textLabel] = "toDoList"></app-show-list>
 
 
-<app-add-item [workList] = "toDoList"></app-add-item>
+<app-add-item (clickChildEvent)="retrieveData($event)" [workList] = "toDoList"></app-add-item>

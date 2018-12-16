@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
   selector: 'app-show-list',
@@ -7,21 +7,24 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ShowListComponent implements OnInit {
   @Input() textLabel : string[];
-
+  @Output() clickChildEvent = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
   strikeData(item : string){
+    debugger;
     const index = this.textLabel.indexOf(item);
     if (index !== -1) {
       this.textLabel[index] = item.strike();
+      this.clickChildEvent.emit(this.textLabel);
     } 
   }
 
   removeData(item : string){
     const itemRemain = this.textLabel.filter(textLabelItem => textLabelItem !== item);
     this.textLabel = itemRemain;
+    this.clickChildEvent.emit(this.textLabel);
   }
 }
