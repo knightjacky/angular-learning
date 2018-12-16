@@ -13,7 +13,7 @@ export class SecondPageComponent implements OnInit {
   }
 
   retrieveData(item){
-    this.toDoList = this.toDoList.concat(item);
+    this.toDoList = item;
   }
 
 }

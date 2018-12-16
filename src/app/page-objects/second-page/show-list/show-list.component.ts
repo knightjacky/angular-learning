@@ -14,7 +14,6 @@ export class ShowListComponent implements OnInit {
   }
 
   strikeData(item : string){
-    debugger;
     const index = this.textLabel.indexOf(item);
     if (index !== -1) {
       this.textLabel[index] = item.strike();
