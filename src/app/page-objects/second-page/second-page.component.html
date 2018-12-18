@@ -3,5 +3,10 @@
       To Do List
     </h1>
 </div>
-<app-show-list (clickChildEvent)="retrieveData($event)" [textLabel] = "toDoList"></app-show-list>
+<!-- <app-show-list (clickChildEvent)="retrieveData($event)" [todoList] = "toDoList"></app-show-list> -->
+<app-show-list 
+  (onItemRemove)="removeItem($event)" 
+  (onItemDone)="strikeItem($event)" 
+  [todoList] = "toDoList">
+</app-show-list>
 <app-add-item (clickChildEvent)="retrieveData($event)" [workList] = "toDoList"></app-add-item>

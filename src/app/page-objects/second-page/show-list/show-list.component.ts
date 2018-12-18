@@ -6,24 +6,24 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
   styleUrls: ['./show-list.component.css']
 })
 export class ShowListComponent implements OnInit {
-  @Input() textLabel : string[];
+  @Input() todoList : object[];
   @Output() clickChildEvent = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
   }
 
-  strikeData(item : string){
-    const index = this.textLabel.indexOf(item);
+  strikeData(item : object){
+    const index = this.todoList.indexOf(item);
     if (index !== -1) {
-      this.textLabel[index] = item.strike();
-      this.clickChildEvent.emit(this.textLabel);
+      this.todoList[index] = item.strike();
+      this.clickChildEvent.emit(this.todoList);
     } 
   }
 
-  removeData(item : string){
-    const itemRemain = this.textLabel.filter(textLabelItem => textLabelItem !== item);
-    this.textLabel = itemRemain;
-    this.clickChildEvent.emit(this.textLabel);
+  removeData(item : object){
+    const itemRemain = this.todoList.filter(todoListItem => todoListItem !== item);
+    this.todoList = itemRemain;
+    this.clickChildEvent.emit(this.todoList);
   }
 }

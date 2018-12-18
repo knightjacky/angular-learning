@@ -6,13 +6,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./second-page.component.css']
 })
 export class SecondPageComponent implements OnInit {
-  toDoList = ['cook food', 'wash dishes', 'clean floor', 'mop floor', 'wash clothes', 'iron clothes'];
+  toDoList = [
+    this.createTodoObject('cook food'), 
+    this.createTodoObject('wash dishes'),
+    this.createTodoObject('clean floor'),
+    this.createTodoObject('mop floor'),
+    this.createTodoObject('wash clothes'),
+    this.createTodoObject('iron clothes')
+  ];
   constructor() { }
 
   ngOnInit() {
+    console.log('todo list content', this.toDoList);
   }
 
-  
+  createTodoObject(label: string = '', isDone: boolean = false) {
+    return {
+      label, 
+      isDone
+    }
+  }
+
+  removeItem(item){
+    this.toDoList = this.toDoList.filter(todoItem => todoItem.label !== item.label);
+  }
 
   retrieveData(item){
     this.toDoList = item;
