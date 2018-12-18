@@ -7,6 +7,7 @@ import { HelpLinkComponent } from './page-objects/first-page/help-link/help-link
 import { SecondPageComponent } from './page-objects/second-page/second-page.component';
 import { ShowListComponent } from './page-objects/second-page/show-list/show-list.component';
 import { AddItemComponent } from './page-objects/second-page/add-item/add-item.component';
+import { DataStoreService } from './service/data-store.service';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { AddItemComponent } from './page-objects/second-page/add-item/add-item.c
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    DataStoreService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

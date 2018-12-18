@@ -8,7 +8,8 @@ import { Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 export class ShowListComponent implements OnInit {
   @Input() textLabel : string[];
   @Output() clickChildEvent = new EventEmitter();
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit() {
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { DataStoreService } from 'src/app/service/data-store.service';
 
 @Component({
   selector: 'app-add-item',
@@ -9,12 +10,13 @@ export class AddItemComponent implements OnInit {
   @Input() workList : string[];
   @Output () clickChildEvent = new EventEmitter();
   dataContainer : string;
-  constructor() { }
+  constructor(private datastoreService: DataStoreService) { }
 
   ngOnInit() {
   }
 
   saveData(data : any) {
+    this.datastoreService.storeItem(data);
     this.dataContainer = data.target.value;
   }
 

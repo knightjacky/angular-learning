@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataStoreService } from 'src/app/service/data-store.service';
 
 @Component({
   selector: 'app-second-page',
@@ -6,16 +7,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./second-page.component.css']
 })
 export class SecondPageComponent implements OnInit {
-  toDoList = ['cook food', 'wash dishes', 'clean floor', 'mop floor', 'wash clothes', 'iron clothes'];
-  constructor() { }
+  public toDoList;
 
-  ngOnInit() {
+  constructor(private datastore: DataStoreService) {
+    console.log('parent subscribing to service')
+    this.datastore.todoListObservable.subscribe((data) => {
+      console.log('data heard in parent from service', data)
+    })
   }
 
-  
+  ngOnInit() {
+    this.toDoList = this.datastore.getData();
+  }
 
   retrieveData(item){
     this.toDoList = item;
+    console.log('Parent got data from child');
+    this.datastore.storeItem(item);
   }
 
 }
