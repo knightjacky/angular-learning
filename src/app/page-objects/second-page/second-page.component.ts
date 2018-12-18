@@ -12,6 +12,8 @@ export class SecondPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  
+
   retrieveData(item){
     this.toDoList = item;
   }
