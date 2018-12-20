@@ -12,7 +12,13 @@ export class HelpLinkComponent implements OnInit {
 
   ngOnInit() {
   }
-  goPage(){
+  goFirstHomework(){
     window.location.href = 'firstofassignment';
+  }
+  goSecondHomework(){
+    window.location.href = 'secondhomework';
+  }
+  goThirdHomework(){
+    window.location.href = 'thirdhomework';
   }
 }
