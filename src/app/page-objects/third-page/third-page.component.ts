@@ -54,4 +54,8 @@ export class ThirdPageComponent implements OnInit {
   receiveData(text: any){
     this.itemName = text.target.value;
   }
+
+  updateObjectArray(array: []){
+    this.toDoObjectList = array;
+  }
 }

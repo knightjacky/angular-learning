@@ -22,7 +22,6 @@ export class ShowListComponent implements OnInit {
   }
 
   removeData(item : string){
-    debugger;
     const itemRemain = this.textLabel.filter(textLabelItem => textLabelItem !== item);
     this.textLabel = itemRemain;
     this.clickChildEvent.emit(this.textLabel);
