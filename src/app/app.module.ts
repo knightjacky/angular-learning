@@ -1,3 +1,4 @@
+import { DataStoreService } from './service/data-store.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,6 +10,8 @@ import { ShowListComponent } from './page-objects/second-page/show-list/show-lis
 import { AddItemComponent } from './page-objects/second-page/add-item/add-item.component';
 import { ThirdPageComponent } from './page-objects/third-page/third-page.component';
 import { FourthPageComponent } from './page-objects/fourth-page/fourth-page.component';
+import { DisplayListComponent } from './page-objects/fourth-page/display-list/display-list.component';
+import { AddListComponent } from './page-objects/fourth-page/add-list/add-list.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +21,15 @@ import { FourthPageComponent } from './page-objects/fourth-page/fourth-page.comp
     ShowListComponent,
     AddItemComponent,
     ThirdPageComponent,
-    FourthPageComponent
+    FourthPageComponent,
+    DisplayListComponent,
+    AddListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DataStoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

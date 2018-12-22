@@ -1,0 +1,24 @@
+<fieldset>
+  <table>
+    <tr *ngFor="let object of dataStoreService.toDoObjectList">
+      <td *ngIf="object.flag === true">
+        <button (click)="pullItemBack(object.id)">pull it back</button>
+      </td>
+      <td *ngIf="object.flag === true" class="text-font-strike">
+        {{object.item}}
+      </td>
+      <td *ngIf="object.flag === true">
+        <button (click)="removeObject(object.id)">remove it</button>
+      </td>
+      <td *ngIf="object.flag === false">
+        {{object.item}}
+      </td>
+      <td *ngIf="object.flag === false" class="text-font">
+        <button (click)="strikeItem(object.id)">cross text out</button>
+      </td>
+      <td *ngIf="object.flag === false">
+        <button (click)="removeObject(object.id)">remove it</button>
+      </td>
+    </tr>
+  </table>
+</fieldset>
