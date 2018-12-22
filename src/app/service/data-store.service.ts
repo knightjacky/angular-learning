@@ -1,14 +1,11 @@
-import { AddItemComponent } from './../second-page/add-item/add-item.component';
-import { Component, OnInit } from '@angular/core';
-import { timer } from 'rxjs';
+import { Injectable, EventEmitter, Input } from '@angular/core';
 
-@Component({
-  selector: 'app-third-page',
-  templateUrl: './third-page.component.html',
-  styleUrls: ['./third-page.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class ThirdPageComponent implements OnInit {
-  toDoObjectList = [
+export class DataStoreService {
+
+  public toDoObjectList = [
     this.createTodoObject('cook food',1), 
     this.createTodoObject('wash dishes',2),
     this.createTodoObject('clean floor',3),
@@ -16,43 +13,37 @@ export class ThirdPageComponent implements OnInit {
     this.createTodoObject('wash clothes',5),
     this.createTodoObject('iron clothes',6)
   ];
-  itemName = '';
+  public todoListObservable = new EventEmitter();
 
   constructor() { }
-
-  ngOnInit() {
-  }
 
   createTodoObject (item: string = '', id: number = Date.now(), flag: boolean = false){
     return {id, item, flag}
   }
 
-  addObject(item: string){
+  updateObjectService(item: string){
+    if (item === '' || item === null){return;}
     this.toDoObjectList.push(this.createTodoObject(item));
   }
 
-  removeObject(idNumber: number){
+  removeObjectService(idNumber: number){
     this.toDoObjectList = this.toDoObjectList.filter(object => object.id !== idNumber);
   }
 
-  strikeItem(idNumber: number){
+  strikeItemService(idNumber: number){
     this.toDoObjectList.filter(object => {
       if(object.id === idNumber){
         object.flag = true;
       }
-    });
+    })
   }
 
-  pullItemBack(idNumber: number){
+  setFlagOffService(idNumber: number){
     this.toDoObjectList.filter(object => {
       if(object.id === idNumber){
         object.flag = false;
       }
-    });
-  }
-
-  receiveData(text: any){
-    this.itemName = text.target.value;
+    })
   }
 
 }
