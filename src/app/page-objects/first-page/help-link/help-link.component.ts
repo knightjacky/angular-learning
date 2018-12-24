@@ -21,4 +21,7 @@ export class HelpLinkComponent implements OnInit {
   goThirdHomework(){
     window.location.href = 'thirdhomework';
   }
+  goFourthHomework(){
+    window.location.href = 'fivepage';
+  }
 }
