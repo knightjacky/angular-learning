@@ -1,0 +1,20 @@
+<fieldset>
+  <h1>Getting Data From Testing API</h1>
+  <ul *ngIf="users">
+    <li *ngFor="let user of users.data">
+      <img [src]="user.avatar">
+      <p>{{user.first_name}} {{user.last_name}}</p>
+    </li>
+  </ul>
+</fieldset>
+<fieldset>
+<h1 [ngClass]="{
+  'blue': titleStyle,
+  'large': titleStyle
+}">change style by ng-class</h1>
+<h1 [ngStyle]="{
+  'color': titleStyle ? 'red' : 'black',
+  'font-size': titleStyle ? '2em' : '1em'
+}">change style by ng-style</h1>
+<button (click)="changeTitleStyle()">Change Title Style</button>
+</fieldset>

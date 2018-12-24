@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, EventEmitter, Input } from '@angular/core';
 
 @Injectable({
@@ -15,7 +16,7 @@ export class DataStoreService {
   ];
   public todoListObservable = new EventEmitter();
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   createTodoObject (item: string = '', id: number = Date.now(), flag: boolean = false){
     return {id, item, flag}
@@ -46,4 +47,14 @@ export class DataStoreService {
     })
   }
 
+  changeTitleStyleService(titleStyle: boolean){
+    if (titleStyle === false){
+      return titleStyle = true;
+    }
+    return titleStyle = false;
+  }
+
+  getUsers(){
+    return this.http.get('https://reqres.in/api/users');
+  }
 }

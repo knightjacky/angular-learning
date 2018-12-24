@@ -1,6 +1,9 @@
-import { DataStoreService } from './service/data-store.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { DataStoreService } from './service/data-store.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,6 +15,12 @@ import { ThirdPageComponent } from './page-objects/third-page/third-page.compone
 import { FourthPageComponent } from './page-objects/fourth-page/fourth-page.component';
 import { DisplayListComponent } from './page-objects/fourth-page/display-list/display-list.component';
 import { AddListComponent } from './page-objects/fourth-page/add-list/add-list.component';
+import { FivePageComponent } from './page-objects/five-page/five-page.component';
+import { ContactComponent } from './page-objects/five-page/contact/contact.component';
+import { HomeComponent } from './page-objects/five-page/home/home.component';
+import { NavComponent } from './page-objects/nav/nav.component';
+import { AboutComponent } from './page-objects/five-page/about/about.component';
+import { SideBarComponent } from './page-objects/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,11 +32,20 @@ import { AddListComponent } from './page-objects/fourth-page/add-list/add-list.c
     ThirdPageComponent,
     FourthPageComponent,
     DisplayListComponent,
-    AddListComponent
+    AddListComponent,
+    FivePageComponent,
+    ContactComponent,
+    // SideBarComponent,
+    HomeComponent,
+    NavComponent,
+    AboutComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [DataStoreService],
   bootstrap: [AppComponent]
