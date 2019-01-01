@@ -1,3 +1,4 @@
+import { SixPageComponent } from './page-objects/six-page/six-page.component';
 import { ContactComponent } from './page-objects/five-page/contact/contact.component';
 import { AboutComponent } from './page-objects/five-page/about/about.component';
 import { FivePageComponent } from './page-objects/five-page/five-page.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'thirdhomework', component: FourthPageComponent},
   {path: 'fivepage', component: FivePageComponent},
   {path: 'fivepage/about', component: AboutComponent},
-  {path: 'fivepage/contact', component: ContactComponent}  
+  {path: 'fivepage/contact', component: ContactComponent},
+  {path: 'sixpage', component: SixPageComponent}  
 ];
 
 @NgModule({

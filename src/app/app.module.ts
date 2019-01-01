@@ -2,6 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { DataStoreService } from './service/data-store.service';
 
@@ -21,6 +24,10 @@ import { HomeComponent } from './page-objects/five-page/home/home.component';
 import { NavComponent } from './page-objects/nav/nav.component';
 import { AboutComponent } from './page-objects/five-page/about/about.component';
 import { SideBarComponent } from './page-objects/side-bar/side-bar.component';
+import { SixPageComponent } from './page-objects/six-page/six-page.component';
+import { UserListComponent } from './page-objects/six-page/user-list/user-list.component';
+import { userReducer } from './page-objects/six-page/reducer';
+import { UserEffects } from './page-objects/six-page/effect';
 
 @NgModule({
   declarations: [
@@ -38,14 +45,22 @@ import { SideBarComponent } from './page-objects/side-bar/side-bar.component';
     // SideBarComponent,
     HomeComponent,
     NavComponent,
-    AboutComponent
-
+    AboutComponent,
+    SixPageComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    StoreModule.forRoot({userReducer}),
+    EffectsModule.forRoot([UserEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25, // Retains last 25 states
+      // logOnly: environment.production, // Restrict extension to log-only mode
+    })
+
   ],
   providers: [DataStoreService],
   bootstrap: [AppComponent]
