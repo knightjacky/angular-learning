@@ -1,0 +1,13 @@
+<h1>Public API With Redux And Effect</h1>
+<h4 *ngIf = "!users" [style.color] = "'red'">ERROR: there is not user to display!!!</h4>
+<ul *ngIf = "users">
+  <li *ngFor="let user of users">
+    <img [src]="user.avatar" />
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+    <button (click)="callEdited(user.id)">Edit</button>
+    <button (click)="callDeleted(user.id)">Delete</button>
+  </li>
+  <li>
+    <button (click)="callCreated()" class="createBtn">create</button>
+  </li>
+</ul>

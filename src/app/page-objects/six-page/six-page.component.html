@@ -1,0 +1,7 @@
+<section>
+    <app-user-list [users] = users
+    (edited) = "editUser($event)"
+    (deleted) = "deleteUser($event)"
+    (created) = "createUser()"></app-user-list>
+</section>
+
