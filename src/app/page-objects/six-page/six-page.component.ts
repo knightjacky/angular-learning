@@ -18,12 +18,10 @@ local: any;
 
   ngOnInit() {
     this.store.dispatch(new usersActions.LoadUsers());
-    this.users$ = this.store.select(store => store.entities);
-    console.log('users list:',this.users$);
-    // this.store.select<any>('entities').subscribe(state => {
-    //   this.users$ = state,
-    //   console.log('state',state,'users',this.users$)
-    // });
+    this.store.select(store => store.userReducer.entities)
+    .subscribe(state => {
+       this.users$ = state.data
+    });
   }
 
   editUser(){

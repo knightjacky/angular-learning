@@ -18,9 +18,7 @@ export class UserEffects {
         ofType(usersActions.LOAD_USERS),
         mergeMap((action: any) => this.http.get('https://reqres.in/api/users?page=2')),
         map( (result: any) => { 
-            console.log('result',result)
             return new usersActions.LoadUsersSuccess(result)}),
-            
         catchError(error => of(new usersActions.LoadUsersFail(error))),
     );
 }
