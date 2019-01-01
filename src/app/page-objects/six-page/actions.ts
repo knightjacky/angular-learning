@@ -17,9 +17,7 @@ export class LoadUsersFail implements Action {
 
 export class LoadUsersSuccess implements Action {
     readonly type = LOAD_USERS_SUCCESS;
-    constructor (public payload: Object){
-        console.log('payload', payload);
-    }
+    constructor (public payload: Object){}
 }
 
 // Action Types
